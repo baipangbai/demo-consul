@@ -5,6 +5,8 @@ import (
 	"github.com/hashicorp/consul/api/watch"
 )
 
+//Event consul event -name=event-test
+//本地启动consul agent -dev
 func Event() {
 	spew.Dump("watch event start")
 	var (
@@ -20,6 +22,7 @@ func Event() {
 	params["name"] = "event-test"
 
 	plan, err = watch.Parse(params)
+	spew.Dump("plan", plan)
 	if err != nil {
 		panic(err)
 	}
